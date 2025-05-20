@@ -308,86 +308,6 @@
       opacity: 1;
       pointer-events: auto;
     }
-    .cart-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(36,36,35,0.33);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-    .cart-modal[hidden] {
-      display: none;
-    }
-    .cart-modal-content {
-      background: #fff;
-      border-radius: 16px;
-      padding: 2.2rem 2.2rem 1.5rem;
-      max-width: 420px;
-      width: 90vw;
-      box-shadow: 0 8px 32px rgba(36,36,35,0.14);
-      position: relative;
-      animation: modalIn 0.25s;
-    }
-    @keyframes modalIn {
-      0% { opacity: 0; transform: translateY(50px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-    .cart-close {
-      position: absolute;
-      right: 1.1rem;
-      top: 1.1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--charcoal);
-      cursor: pointer;
-    }
-    #cart-items {
-      margin: 1.2rem 0;
-      max-height: 250px;
-      overflow-y: auto;
-    }
-    .cart-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-    .cart-item-img {
-      width: 62px;
-      height: 62px;
-      object-fit: cover;
-      border-radius: 7px;
-      border: 1.5px solid #eee;
-    }
-    .cart-item-details {
-      flex: 1;
-    }
-    .cart-item-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .cart-item-price {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .cart-item-qty {
-      font-size: 0.98rem;
-      color: #666;
-      margin-top: 2px;
-    }
-    .cart-summary {
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 1.4rem;
-      color: var(--charcoal);
-    }
     @media (max-width: 950px) {
       nav { padding: 1.2rem 2.5%; }
       main { padding: 2rem 2.5% 4rem; }
@@ -395,7 +315,6 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.3rem; }
       .product-image { height: 200px; }
-      .cart-modal-content { padding: 1.2rem 1rem 1.2rem; }
     }
     @media (max-width: 600px) {
       .products-grid { gap: 1.3rem; }
@@ -403,31 +322,12 @@
       #about, #contact, .profile-section { padding: 1.4rem 0.5rem; }
       main { padding-bottom: 2.5rem; }
     }
-    @media (max-width: 540px) {
-      .nav-links {
-        flex-direction: column;
-        gap: 1.3rem;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: #fff;
-        box-shadow: 0 8px 24px var(--shadow);
-        border-radius: 0 0 14px 14px;
-        padding: 1rem 2.5rem 1.2rem 1.2rem;
-        min-width: 160px;
-        display: none;
-        z-index: 1200;
-      }
-      .nav-links.open { display: flex;}
-      .nav-toggle { display: block; }
-    }
   </style>
 </head>
 <body>
   <header>
     <nav>
       <div class="logo" aria-label="LOTUS Brand Logo">LOTUS</div>
-      <button class="nav-toggle" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
       <div class="nav-links" role="navigation" aria-label="Primary">
         <a href="#hero">Home</a>
         <a href="#products">Collection</a>
@@ -461,7 +361,7 @@
     </section>
     <section class="profile-section" id="profile">
       <h2>Featured Look</h2>
-      <img src="image1" alt="Featured Polo Look" />
+      <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/70614808/77f95d02-2c23-4591-aede-955a2583f2b1/image_0_bb6af1fe-1111111111111111111111.jpg" alt="Featured Polo Look" />
       <p>
         Elevate your style with our signature classic polo, as shown above. <br>
         Experience comfort and elegance in every detail, designed for those who appreciate timeless fashion.
@@ -487,20 +387,8 @@
     </p>
   </footer>
   <div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
-  <div id="cart-modal" class="cart-modal" aria-modal="true" role="dialog" tabindex="-1" hidden>
-    <div class="cart-modal-content">
-      <button class="cart-close" aria-label="Close Cart">&times;</button>
-      <h2>Your Cart</h2>
-      <div id="cart-items"></div>
-      <div class="cart-summary">
-        <span>Total:</span>
-        <span id="cart-total">$0.00</span>
-      </div>
-      <button class="btn-primary btn-checkout" disabled>Checkout</button>
-    </div>
-  </div>
   <script>
-    // منتجات Old Money Polo (صور Unsplash أصلية)
+    // Old Money Polo Products
     const PRODUCTS = [
       {
         id: 1,
@@ -545,153 +433,47 @@
         image: "https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?auto=format&fit=crop&w=600&q=80"
       }
     ];
-    // حفظ cart في localStorage
-    function saveCart(cart) {
-      localStorage.setItem('lotus_cart', JSON.stringify(cart));
-    }
-    function loadCart() {
-      const data = localStorage.getItem('lotus_cart');
-      return data ? JSON.parse(data) : {};
-    }
-    function updateCartCount(cart) {
-      let total = 0;
-      for (let id in cart) total += cart[id].qty;
-      document.querySelector('.cart-count').textContent = total;
-    }
-    // توليد المنتجات ديناميكياً
+
+    // Inject products into grid
     function renderProducts() {
       const grid = document.getElementById('products-grid');
       grid.innerHTML = '';
-      PRODUCTS.forEach(prod => {
-        const card = document.createElement('article');
-        card.className = 'product-card';
-        card.tabIndex = 0;
-        card.setAttribute('aria-label', `${prod.title}, $${prod.price}`);
-        card.innerHTML = `
-          <img src="${prod.image}" alt="${prod.title}" class="product-image" />
-          <div class="product-content">
-            <h3 class="product-title">${prod.title}</h3>
-            <p class="product-desc">${prod.desc}</p>
-            <p class="product-price">$${prod.price.toFixed(2)}</p>
-            <button class="btn-add" data-id="${prod.id}">Add to Cart</button>
-          </div>
+      PRODUCTS.forEach(product => {
+        grid.innerHTML += `
+          <article class="product-card" tabindex="0" aria-label="${product.title}, $${product.price}">
+            <img src="${product.image}" alt="${product.title}" class="product-image" />
+            <div class="product-content">
+              <h3 class="product-title">${product.title}</h3>
+              <p class="product-desc">${product.desc}</p>
+              <p class="product-price">$${product.price.toFixed(2)}</p>
+              <button class="btn-add" onclick="addToCart(this, ${product.id})">Add to Cart</button>
+            </div>
+          </article>
         `;
-        grid.appendChild(card);
       });
     }
-    // Toast Notification
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1600);
-    }
-    // Cart Modal Logic
-    function openCartModal() {
-      const modal = document.getElementById('cart-modal');
-      modal.hidden = false;
-      modal.focus();
-      renderCartItems();
-    }
-    function closeCartModal() {
-      document.getElementById('cart-modal').hidden = true;
-    }
-    function renderCartItems() {
-      const cart = loadCart();
-      const cartItemsDiv = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
-      let total = 0;
-      cartItemsDiv.innerHTML = '';
-      const keys = Object.keys(cart);
-      if (!keys.length) {
-        cartItemsDiv.innerHTML = `<p style="text-align:center;color:#666;">Your cart is empty.</p>`;
-        cartTotal.textContent = '$0.00';
-        document.querySelector('.btn-checkout').disabled = true;
-        return;
-      }
-      keys.forEach(id => {
-        const prod = PRODUCTS.find(p => p.id == id);
-        if (!prod) return;
-        const item = cart[id];
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <img src="${prod.image}" alt="${prod.title}" class="cart-item-img"/>
-          <div class="cart-item-details">
-            <div class="cart-item-title">${prod.title}</div>
-            <div class="cart-item-price">$${prod.price.toFixed(2)}</div>
-            <div class="cart-item-qty">Qty: ${item.qty}</div>
-          </div>
-          <button class="cart-remove" data-id="${id}" title="Remove"><i class="fas fa-trash"></i></button>
-        `;
-        cartItemsDiv.appendChild(div);
-        total += prod.price * item.qty;
-      });
-      cartTotal.textContent = `$${total.toFixed(2)}`;
-      document.querySelector('.btn-checkout').disabled = false;
-    }
-    // إضافة للـCart
-    function addToCart(prodId) {
-      let cart = loadCart();
-      if (!cart[prodId]) cart[prodId] = { qty: 0 };
-      cart[prodId].qty++;
-      saveCart(cart);
-      updateCartCount(cart);
+    renderProducts();
+
+    // Cart logic
+    let cartCount = 0;
+    const toast = document.getElementById('toast');
+    function addToCart(btn, id) {
+      cartCount++;
+      document.querySelector('.cart-count').textContent = cartCount;
       showToast('Added to cart!');
     }
-    // إزالة من cart
-    function removeFromCart(prodId) {
-      let cart = loadCart();
-      if (cart[prodId]) {
-        delete cart[prodId];
-        saveCart(cart);
-        updateCartCount(cart);
-        renderCartItems();
-      }
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 1500);
     }
-    // Event Listeners
-    document.addEventListener('DOMContentLoaded', function() {
-      renderProducts();
-      updateCartCount(loadCart());
-      // Add to Cart buttons
-      document.getElementById('products-grid').addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-add')) {
-          const id = e.target.getAttribute('data-id');
-          addToCart(id);
-        }
-      });
-      // Open Cart
-      document.querySelector('.cart').addEventListener('click', openCartModal);
-      // Close Cart
-      document.querySelector('.cart-close').addEventListener('click', closeCartModal);
-      document.getElementById('cart-modal').addEventListener('click', function(e) {
-        if (e.target === this) closeCartModal();
-      });
-      // Remove from Cart
-      document.getElementById('cart-items').addEventListener('click', function(e) {
-        if (e.target.closest('.cart-remove')) {
-          const id = e.target.closest('.cart-remove').getAttribute('data-id');
-          removeFromCart(id);
-        }
-      });
-      // ESC to close modal
-      document.addEventListener('keydown', function(e) {
-        if (e.key === "Escape") closeCartModal();
-      });
-      // Explore btn scroll
-      document.getElementById('explore-btn').addEventListener('click', function() {
-        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-      });
-      // Responsive Nav
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-      });
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
-      });
-    });
+
+    // Smooth scroll for Explore button
+    document.getElementById('explore-btn').onclick = function() {
+      document.getElementById('products').scrollIntoView({behavior: "smooth"});
+    };
   </script>
 </body>
 </html>
