@@ -1,191 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LOTUS – Old Money Polo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-bg: #F5F3EE;        /* Ivory */
-      --color-text: #2B2A28;      /* Charcoal */
-      --color-heading: #4A4845;   /* Taupe */
-      --color-accent: #8B7356;    /* Camel */
-      --color-gold: #C5A47E;      /* Metallic Gold */
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--color-text); background: var(--color-bg); }
-    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--color-heading); }
-    h1 { font-size: 3.5rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-    h2 { font-size: 2.25rem; margin: 3rem 0 1.5rem; border-bottom: 1px solid var(--color-gold); padding-bottom: 0.5rem; }
-    p { line-height: 1.7; margin: 0 0 1.5rem; font-size: 1.1rem; }
-    a { color: inherit; text-decoration: none; transition: opacity 0.3s; }
-    a:hover { opacity: 0.7; }
-    
-    /* Header */
-    .header {
-      position: fixed;
-      width: 100%;
-      padding: 1.5rem 5%;
-      background: rgba(245, 243, 238, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    }
-    .nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-heading);
-      letter-spacing: 2px;
-    }
-    
-    /* Hero Section */
-    .hero {
-      position: relative;
-      background: linear-gradient(rgba(0,0,0,0.2), 
-                  url('https://images.unsplash.com/photo-1601924638867-80482e1b982d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      margin-top: 80px;
-    }
-    .hero h1 {
-      font-size: 4rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      margin-bottom: 1.5rem;
-    }
-    .hero p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      opacity: 0.9;
-    }
-    
-    /* Polo Collection */
-    .collection-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 4rem 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .polo-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      transition: transform 0.3s;
-    }
-    .polo-item:hover {
-      transform: translateY(-5px);
-    }
-    .polo-image {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      border: 1px solid rgba(139, 115, 86, 0.2);
-    }
-    .polo-details {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      padding: 2rem;
-      color: white;
-    }
-    .polo-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Craftsmanship Section */
-    .craftsmanship {
-      padding: 6rem 5%;
-      background: var(--color-heading);
-      color: var(--color-bg);
-      text-align: center;
-    }
-    .craftsmanship h2 {
-      color: var(--color-gold);
-      border: none;
-    }
-    
-    /* Buttons */
-    .cta-button {
-      padding: 1rem 2.5rem;
-      background: transparent;
-      border: 2px solid var(--color-gold);
-      color: var(--color-gold);
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .cta-button:hover {
-      background: var(--color-gold);
-      color: var(--color-heading);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTUS | Old Money Polo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --ivory: #F7F5F0;
+            --charcoal: #2B2A28;
+            --gold: #C5A47E;
+            --taupe: #8B7356;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--ivory);
+            color: var(--charcoal);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(247, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 115, 86, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: var(--charcoal);
+        }
+
+        .nav-links a {
+            margin: 0 2rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 5% 100px;
+            text-align: center;
+            background: linear-gradient(rgba(43,42,40,0.1), rgba(43,42,40,0.1)),
+                        url('https://images.unsplash.com/photo-1601924638867-80482e1b982d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--ivory);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Products Grid */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            padding: 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border: 1px solid rgba(139, 115, 86, 0.2);
+        }
+
+        .product-details {
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .product-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--taupe);
+            font-size: 1.1rem;
+        }
+
+        /* Product Badges */
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--ivory);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--ivory);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background: #B08F68;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links a { margin: 0 1rem; }
+            .product-image { height: 400px; }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <nav class="nav">
-      <div class="logo">LOTUS POLO</div>
-      <div class="nav-links">
-        <a href="#collection">Collections</a>
-        <a href="#craftsmanship">Craftsmanship</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+    <header class="header" data-aos="fade-down">
+        <nav class="nav">
+            <div class="logo">LOTUS</div>
+            <div class="nav-links">
+                <a href="#collection">المجموعات</a>
+                <a href="#story">القصة</a>
+                <a href="#craftsmanship">الحرفية</a>
+                <a href="#contact">تواصل</a>
+            </div>
+        </nav>
+    </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Timeless Polo Elegance</h1>
-      <p>Where Heritage Meets Modern Tailoring</p>
-      <button class="cta-button">Explore 2024 Collection</button>
-    </div>
-  </section>
+    <section class="hero" id="hero">
+        <h1 data-aos="zoom-in">فن البولو الكلاسيكي</h1>
+        <button class="cta-button" data-aos="zoom-in" data-aos-delay="300">اكتشف المجموعة</button>
+    </section>
 
-  <section class="collection-grid" id="collection">
-    <div class="polo-item">
-      <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc549c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
-           class="polo-image" 
-           alt="Classic White Polo">
-      <div class="polo-details">
-        <h3 class="polo-title">Signature White Polo</h3>
-        <p>Egyptian Cotton • Mother-of-Pearl Buttons</p>
-      </div>
-    </div>
-    
-    <div class="polo-item">
-      <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=1972&q=80" 
-           class="polo-image" 
-           alt="Navy Blue Polo">
-      <div class="polo-details">
-        <h3 class="polo-title">Midnight Navy Polo</h3>
-        <p>Pima Cotton • Gold Embroidery</p>
-      </div>
-    </div>
-  </section>
+    <section class="collection-grid" id="collection">
+        <!-- Product 1 -->
+        <div class="product-card" data-aos="fade-up">
+            <span class="product-badge">حصري</span>
+            <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc549c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
+                 class="product-image" 
+                 alt="LOTUS Classic Polo">
+            <div class="product-details">
+                <h3 class="product-title">تيشرت البولو الكلاسيكي</h3>
+                <p class="product-price">1,850 ج.م</p>
+            </div>
+        </div>
 
-  <section class="craftsmanship" id="craftsmanship">
-    <div class="container">
-      <h2>Artisanal Excellence</h2>
-      <p>Each polo shirt undergoes 78 precise steps of craftsmanship</p>
-      <div class="cta-button" style="margin-top: 2rem;">Discover Our Process</div>
-    </div>
-  </section>
+        <!-- Product 2 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="product-badge">الأكثر مبيعًا</span>
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=1972&q=80" 
+                 class="product-image" 
+                 alt="LOTUS Navy Polo">
+            <div class="product-details">
+                <h3 class="product-title">تيشرت البولو الأزرق</h3>
+                <p class="product-price">2,150 ج.م</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    </script>
 </body>
 </html>
