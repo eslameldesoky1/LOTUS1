@@ -27,7 +27,7 @@
     header {
       position: fixed;
       width: 100%;
-      background: rgba(246,245,242,0.95);
+      background: rgba(246,245,242,0.97);
       border-bottom: 1px solid var(--taupe);
       z-index: 1000;
       box-shadow: 0 3px 12px var(--shadow);
@@ -181,6 +181,27 @@
       font-size: 1.09rem;
       line-height: 1.7;
       color: #575757;
+    }
+    .profile-section {
+      background: #fff;
+      margin: 3rem auto 0;
+      max-width: 700px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px var(--shadow);
+      padding: 2.3rem 2rem 2.6rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.3rem;
+    }
+    .profile-section img {
+      max-width: 240px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px var(--shadow);
+      margin-bottom: 1rem;
+      border: 2.5px solid var(--accent);
     }
     .products-grid {
       display: grid;
@@ -379,7 +400,7 @@
     @media (max-width: 600px) {
       .products-grid { gap: 1.3rem; }
       .product-card { border-radius: 7px;}
-      #about, #contact { padding: 1.4rem 0.5rem; }
+      #about, #contact, .profile-section { padding: 1.4rem 0.5rem; }
       main { padding-bottom: 2.5rem; }
     }
     @media (max-width: 540px) {
@@ -411,6 +432,7 @@
         <a href="#hero">Home</a>
         <a href="#products">Collection</a>
         <a href="#about">About</a>
+        <a href="#profile">Profile</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="cart" aria-label="Shopping Cart" aria-live="polite" type="button">
@@ -437,6 +459,14 @@
         Our collection features classic polo pieces made from the finest materials, designed for elegance and enduring style.
       </p>
     </section>
+    <section class="profile-section" id="profile">
+      <h2>Featured Look</h2>
+      <img src="image1" alt="Featured Polo Look" />
+      <p>
+        Elevate your style with our signature classic polo, as shown above. <br>
+        Experience comfort and elegance in every detail, designed for those who appreciate timeless fashion.
+      </p>
+    </section>
     <section id="contact">
       <h2>Contact Us</h2>
       <p>
@@ -452,6 +482,7 @@
       <a href="#hero">Home</a> | 
       <a href="#products">Collection</a> | 
       <a href="#about">About</a> | 
+      <a href="#profile">Profile</a> | 
       <a href="#contact">Contact</a>
     </p>
   </footer>
