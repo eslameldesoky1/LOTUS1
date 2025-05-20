@@ -1,258 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOTUS | Old Money Aesthetics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --ivory: #F7F5F0;
-            --charcoal: #2B2A28;
-            --gold: #C5A47E;
-            --taupe: #8B7356;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--ivory);
-            color: var(--charcoal);
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            width: 100%;
-            padding: 1.5rem 5%;
-            background: rgba(247, 245, 240, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(139, 115, 86, 0.1);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
-            margin: 0 2rem;
-            color: var(--charcoal);
-            text-decoration: none;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 150px 5% 100px;
-            text-align: center;
-            background: linear-gradient(rgba(43,42,40,0.1), rgba(43,42,40,0.1)),
-                        url('https://images.unsplash.com/photo-1601924638867-80482e1b982d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 80vh;
-        }
-
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            color: var(--ivory);
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-        }
-
-        /* Products Grid */
-        .collection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            padding: 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border: 1px solid rgba(139, 115, 86, 0.2);
-        }
-
-        .product-details {
-            padding: 1.5rem 0;
-            text-align: center;
-        }
-
-        .product-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-price {
-            color: var(--taupe);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--gold);
-            color: var(--ivory);
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        .quick-add {
-            background: var(--charcoal);
-            color: var(--ivory);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .quick-add:hover {
-            background: var(--taupe);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 4rem 5%;
-            background: var(--charcoal);
-            color: var(--ivory);
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links a { margin: 0 1rem; }
-            .product-image { height: 400px; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LOTUS | Old Money Aesthetic Outfits</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  :root {
+    --ivory: #F7F5F0;
+    --charcoal: #2B2A28;
+    --gold: #C5A47E;
+    --taupe: #8B7356;
+    --shadow: rgba(0,0,0,0.1);
+  }
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Header */
+  header {
+    position: fixed;
+    width: 100%;
+    background: rgba(247, 245, 240, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 115, 86, 0.1);
+    z-index: 1000;
+  }
+  nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    color: var(--charcoal);
+    cursor: default;
+    user-select: none;
+  }
+  .nav-links a {
+    margin: 0 1.5rem;
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    background: var(--gold);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: var(--gold);
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    width: 100%;
+  }
+  /* Cart */
+  .cart {
+    position: relative;
+    font-size: 1.4rem;
+    color: var(--charcoal);
+    cursor: pointer;
+  }
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--gold);
+    color: var(--ivory);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    user-select: none;
+  }
+  /* Hero Section */
+  .hero {
+    margin-top: 80px;
+    padding: 120px 5% 80px;
+    text-align: center;
+    background: linear-gradient(rgba(43,42,40,0.1), rgba(43,42,40,0.1)),
+                url('https://images.unsplash.com/photo-1601924638867-80482e1b982d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--ivory);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ivory);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--shadow);
+    transition: background 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: var(--taupe);
+  }
+  /* Products Grid */
+  main {
+    flex-grow: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 5% 5rem;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
+  }
+  .product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .product-card:hover,
+  .product-card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .product-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+    user-select: none;
+  }
+  .product-content {
+    padding: 1.5rem 1.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    color: var(--charcoal);
+  }
+  .product-desc {
+    font-size: 0.95rem;
+    color: #666;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+  .product-price {
+    font-weight: 700;
+    color: var(--taupe);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+  .btn-add {
+    background: var(--charcoal);
+    color: var(--ivory);
+    border: none;
+    padding: 0.8rem 1.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+  }
+  .btn-add:hover,
+  .btn-add:focus {
+    background: var(--taupe);
+  }
+  /* Footer */
+  footer {
+    background: var(--charcoal);
+    color: var(--ivory);
+    text-align: center;
+    padding: 3rem 5%;
+    font-size: 0.9rem;
+  }
+  footer a {
+    color: var(--gold);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 600;
+  }
+  footer a:hover,
+  footer a:focus {
+    text-decoration: underline;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.8rem;
+    }
+    .product-image {
+      height: 280px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .nav-links {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+  /* Toast Notification */
+  #toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--charcoal);
+    color: var(--ivory);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 1500;
+    font-weight: 600;
+  }
+  #toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
 </head>
 <body>
-    <header class="header" data-aos="fade-down">
-        <nav class="nav">
-            <div class="logo">LOTUS</div>
-            <div class="nav-links">
-                <a href="#collection">Collection</a>
-                <a href="#about">Heritage</a>
-                <a href="#craftsmanship">Craftsmanship</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="cart">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-count">0</span>
-            </div>
-        </nav>
-    </header>
 
-    <section class="hero" id="hero">
-        <h1 data-aos="zoom-in">Timeless Elegance, Modern Luxury</h1>
-        <button class="quick-add" data-aos="zoom-in" data-aos-delay="300">Explore Collection</button>
-    </section>
+<header>
+  <nav>
+    <div class="logo" aria-label="LOTUS Brand Logo">LOTUS</div>
+    <div class="nav-links" role="navigation" aria-label="Primary">
+      <a href="#hero">Home</a>
+      <a href="#products">Collection</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="cart" aria-label="Shopping Cart" tabindex="0" role="button" aria-live="polite">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" aria-atomic="true">0</span>
+    </div>
+  </nav>
+</header>
 
-    <section class="collection-grid" id="collection">
-        <!-- Product 1 -->
-        <div class="product-card" data-aos="fade-up">
-            <span class="product-badge">Best Seller</span>
-            <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc549c9" class="product-image" alt="Classic Polo">
-            <div class="product-details">
-                <h3 class="product-title">Signature Cotton Polo</h3>
-                <p class="product-price">$285.00</p>
-                <button class="quick-add">Quick Add</button>
-                <a href="#" class="view-details">View Details</a>
-            </div>
+<section class="hero" id="hero" role="banner">
+  <h1>Timeless Elegance, Modern Luxury</h1>
+  <p>Discover our exclusive Old Money style outfits — crafted with premium fabrics and classic designs.</p>
+  <button class="btn-primary" onclick="scrollToProducts()">Explore Collection</button>
+</section>
+
+<main>
+  <section id="products" aria-label="Product Collection">
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <article class="product-card" tabindex="0" aria-label="Signature White Cotton Polo Shirt, $285">
+        <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc549c9?auto=format&fit=crop&w=600&q=80" alt="Signature White Cotton Polo Shirt" class="product-image" />
+        <div class="product-content">
+          <h3 class="product-title">Signature White Cotton Polo</h3>
+          <p class="product-desc">Classic white polo with premium cotton fabric, embroidered logo, and timeless fit.</p>
+          <p class="product-price">$285.00</p>
+          <button class="btn-add" onclick="addToCart(this)">Add to Cart</button>
         </div>
+      </article>
 
-        <!-- Product 2-10 (Repeat similar structure) -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="product-badge">Exclusive</span>
-            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633" class="product-image" alt="Navy Blazer">
-            <div class="product-details">
-                <h3 class="product-title">Wool-Cashmere Blazer</h3>
-                <p class="product-price">$895.00</p>
-                <button class="quick-add">Quick Add</button>
-                <a href="#" class="view-details">View Details</a>
-            </div>
+      <!-- Product 2 -->
+      <article class="product-card" tabindex="0" aria-label="Olive Green Polo Shirt, $295">
+        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80" alt="Olive Green Polo Shirt" class="product-image" />
+        <div class="product-content">
+          <h3 class="product-title">Olive Green Polo</h3>
+          <p class="product-desc">Deep olive green polo with sturdy collar, short sleeves, and golden logo embroidery.</p>
+          <p class="product-price">$295.00</p>
+          <button class="btn-add" onclick="addToCart(this)">Add to Cart</button>
         </div>
+      </article>
 
-        <!-- Add 8 more product cards following the same pattern -->
-
-    </section>
-
-    <footer class="footer">
-        <p>© 2024 LOTUS. All rights reserved.</p>
-        <div class="legal-links">
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Contact Us</a>
+      <!-- Product 3 -->
+      <article class="product-card" tabindex="0" aria-label="Sky Blue Polo Shirt, $275">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Sky Blue Polo Shirt" class="product-image" />
+        <div class="product-content">
+          <h3 class="product-title">Sky Blue Polo</h3>
+          <p class="product-desc">Light sky blue polo with white collar and pearl buttons, perfect for summer elegance.</p>
+          <p class="product-price">$275.00</p>
+          <button class="btn-add" onclick="addToCart(this)">Add to Cart</button>
         </div>
-    </footer>
+      </article>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            easing: 'ease-in-out'
-        });
+      <!-- Product 4 -->
+      <article class="product-card" tabindex="0" aria-label="Light Beige Polo Shirt, $280">
+        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=600&q=80" alt="Light Beige Polo Shirt" class="product-image" />
+        <div class="product-content">
+          <h3 class="product-title">Light Beige Polo</h3>
+          <p class="product-desc">Elegant beige polo with subtle collar embroidery, neutral and easy to style.</p>
+          <p class="product-price">$280.00</p>
+          <button class="btn-add" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </article>
 
-        // Cart functionality
-        let cartCount = 0;
-        document.querySelectorAll('.quick-add').forEach(button => {
-            button.addEventListener('click', () => {
-                cartCount++;
-                document.querySelector('.cart-count').textContent = cartCount;
-            });
-        });
-    </script>
+      <!-- Add more products here as needed -->
+
+    </div>
+  </section>
+
+  <section id="about" style="margin-top: 4rem; max-width: 900px; margin-left:auto; margin-right:auto; padding: 0 1rem;">
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--charcoal);">About LOTUS</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6; color: #444;">
+      LOTUS is a premium brand inspired by the Old Money aesthetic — timeless elegance, understated luxury, and impeccable craftsmanship.  
+      Our collection features classic pieces made from high-quality materials, designed to elevate your wardrobe with sophistication and style.
+    </p>
+  </section>
+
+  <section id="contact" style="margin-top: 4rem; max-width: 900px; margin-left:auto; margin-right:auto; padding: 0 1rem;">
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--charcoal);">Contact Us</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6; color: #444;">
+      For inquiries, collaborations, or customer support, please reach out to us at:  
+      <a href="mailto:info@lotusbrand.com" style="color: var(--gold); text-decoration: none;">info@lotusbrand.com</a>  
+      or call us at +1 (555) 123-4567.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 LOTUS. All rights reserved.</p>
+  <p>
+    <a href="#hero">Home</a> | 
+    <a href="#products">Collection</a> | 
+    <a href="#about">About</a> | 
+    <a href="#contact">Contact</a>
+  </p>
+</footer>
+
+<div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+<script>
+  // Scroll to products section
+  function scrollToProducts() {
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Cart functionality with toast notification
+  let cartCount = 0;
+  const toast = document.getElementById('toast');
+
+  function addToCart(button) {
+    cartCount++;
+    document.querySelector('.cart-count').textContent = cartCount;
+    showToast('Added to cart!');
+  }
+
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 1500);
+  }
+</script>
+
 </body>
 </html>
