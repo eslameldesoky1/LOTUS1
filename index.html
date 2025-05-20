@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>LOTUS - Luxury Apparel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
     <style>
         :root {
             --bg-color: #faf9f3;
             --text-color: #333;
             --primary-color: #cfa66e; /* gold tone */
-            --accent-color: #881337;  /* royal wine */
+            --accent-color: #0a4f7c;  /* deep Egyptian blue */
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Libre Baskerville', serif;
+            --pattern-color: rgba(207, 166, 110, 0.15); /* subtle gold pattern */
         }
         * {
             box-sizing: border-box;
@@ -22,9 +23,12 @@
             color: var(--text-color);
             background-color: var(--bg-color);
             line-height: 1.6;
+            background-image:
+                radial-gradient(circle at 50% 50%, var(--pattern-color) 2px, transparent 3px);
+            background-size: 60px 60px;
         }
         nav {
-            background-color: rgba(255,255,255,0.9);
+            background-color: rgba(255,255,255,0.95);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -32,31 +36,36 @@
             align-items: center;
             justify-content: space-between;
             padding: 15px 20px;
-            border-bottom: 1px solid #e0d5c0;
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         nav .logo {
             font-family: var(--font-heading);
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            letter-spacing: 2px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            letter-spacing: 3px;
+            text-shadow: 0 0 5px rgba(207, 166, 110, 0.8);
         }
         nav ul {
             list-style: none;
             display: flex;
         }
         nav ul li {
-            margin-left: 20px;
+            margin-left: 25px;
         }
         nav ul li a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
             font-family: var(--font-body);
-            padding: 8px;
-            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: color 0.3s, background-color 0.3s;
         }
         nav ul li a:hover, nav ul li a.active {
-            color: var(--accent-color);
+            color: white;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
         }
         /* Hero Section */
         .hero {
@@ -68,83 +77,121 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            overflow: hidden;
         }
         .hero::before {
             content: "";
             position: absolute;
             top:0; left:0; right:0; bottom:0;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        /* Adding Lotus SVG as subtle background pattern */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Egyptian_Lotus.svg') no-repeat center center;
+            background-size: contain;
+            opacity: 0.1;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 2;
         }
         .hero-content {
             position: relative;
             max-width: 800px;
             padding: 20px;
+            z-index: 3;
         }
         .hero-content h2 {
             font-family: var(--font-heading);
-            font-size: 3rem;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px rgba(207, 166, 110, 0.9);
         }
         .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-shadow: 0 0 6px rgba(0,0,0,0.7);
         }
         .btn {
             display: inline-block;
-            padding: 10px 25px;
+            padding: 12px 30px;
             background-color: var(--accent-color);
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             font-family: var(--font-body);
-            letter-spacing: 1px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            letter-spacing: 1.5px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px var(--accent-color);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
         .btn:hover {
-            background-color: #b72c2c;
+            background-color: #063d56;
+            box-shadow: 0 0 25px #063d56;
         }
         /* Collections Section */
         .collections {
-            padding: 60px 20px;
+            padding: 70px 20px 60px;
             text-align: center;
+            background: #fffaf0;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Egyptian_pattern_in_blue.svg/1200px-Egyptian_pattern_in_blue.svg.png');
+            background-repeat: repeat;
+            background-size: 80px 80px;
+            opacity: 0.07;
         }
         .collections h2 {
             font-family: var(--font-heading);
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--accent-color);
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            text-shadow: 0 0 8px rgba(207, 166, 110, 0.7);
+            position: relative;
+            z-index: 10;
         }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 10;
         }
         .product {
             background-color: white;
-            padding: 15px;
-            border: 1px solid #e4ddd6;
-            border-radius: 8px;
-            transition: transform 0.3s;
+            padding: 20px;
+            border: 1.5px solid var(--primary-color);
+            border-radius: 12px;
+            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 0 10px rgba(207, 166, 110, 0.15);
         }
         .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(207, 166, 110, 0.5);
+            border-color: var(--accent-color);
         }
         .product img {
             width: 100%;
-            border-radius: 4px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
         .product h3 {
             font-family: var(--font-body);
-            font-size: 1.1rem;
-            margin: 10px 0;
-            color: var(--text-color);
+            font-size: 1.3rem;
+            margin: 15px 0 10px;
+            color: var(--accent-color);
+            letter-spacing: 0.5px;
         }
         .product p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #555;
+            line-height: 1.4;
         }
         /* Story Section */
         .story {
@@ -152,174 +199,38 @@
             flex-wrap: wrap;
             align-items: center;
             padding: 60px 20px;
-            background-color: #fffaf0;
+            background-color: #fff8e7;
+            border-top: 3px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
         }
         .story img {
             width: 100%;
             max-width: 500px;
-            border-radius: 8px;
-            margin-right: 20px;
+            border-radius: 15px;
+            margin-right: 30px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(207, 166, 110, 0.3);
+            filter: saturate(0.8) brightness(1.1);
         }
         .story-content {
             flex: 1;
         }
         .story h2 {
             font-family: var(--font-heading);
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
             color: var(--accent-color);
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(10, 79, 124, 0.7);
         }
         .story p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #444;
-            line-height: 1.7;
+            line-height: 1.8;
         }
         /* Craftsmanship Section */
         .craft {
             padding: 60px 20px;
             text-align: center;
-        }
-        .craft h2 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-        .craft p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.6;
-        }
-        /* Contact Section */
-        .contact {
-            padding: 60px 20px;
-            background-color: #f9f6ef;
-        }
-        .contact h2 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--accent-color);
-        }
-        .contact form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .contact label {
-            display: block;
-            text-align: left;
-            margin-bottom: 5px;
-            font-weight: bold;
-            font-family: var(--font-body);
-            color: #333;
-        }
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-size: 1rem;
-        }
-        .contact button {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact button:hover {
-            background-color: #b72c2c;
-        }
-        /* Footer */
-        footer {
-            background-color: #eeeeec;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        footer a {
-            color: var(--accent-color);
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="logo">LOTUS</div>
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#craft">Craftsmanship</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>Timeless Elegance Reimagined</h2>
-            <p>Experience the fusion of old-world luxury and Egyptian-inspired design.</p>
-            <a href="#collections" class="btn">View Collections</a>
-        </div>
-    </section>
-    <section id="collections" class="collections">
-        <h2>Collections</h2>
-        <div class="product-grid">
-            <div class="product">
-                <img src="https://cdn.pixabay.com/photo/2016/03/27/19/31/fashion-1283863_640.jpg" alt="Striped knitted sweater">
-                <h3>Cozy Knit Sweater</h3>
-                <p>Luxurious wool sweater in classic stripe design.</p>
-            </div>
-            <div class="product">
-                <img src="https://cdn.pixabay.com/photo/2015/10/16/13/47/premium-991221_640.jpg" alt="Shirt collar with premium label">
-                <h3>Premium Oxford Shirt</h3>
-                <p>Elegant cotton shirt with premium detailing.</p>
-            </div>
-            <div class="product">
-                <img src="https://cdn.pixabay.com/photo/2016/01/19/16/26/ties-1149342_1280.jpg" alt="Collection of patterned neckties">
-                <h3>Silk Tie Selection</h3>
-                <p>Handcrafted silk ties with intricate patterns.</p>
-            </div>
-            <div class="product">
-                <img src="https://cdn.pixabay.com/photo/2016/09/22/19/44/belts-1688135_640.jpg" alt="Brown suede belt with decorative buckle">
-                <h3>Elegant Leather Belt</h3>
-                <p>Premium leather belt with ornate buckle.</p>
-            </div>
-        </div>
-    </section>
-    <section id="story" class="story">
-        <img src="https://cdn.pixabay.com/photo/2017/11/02/14/26/man-2911327_640.jpg" alt="Stylish man wearing leather jacket">
-        <div class="story-content">
-            <h2>Our Story</h2>
-            <p>LOTUS draws inspiration from the golden age of fashion, blending the refinement of old-money aesthetics with the rich heritage of Egyptian art. Founded by visionaries passionate about timeless elegance, our brand celebrates craftsmanship and tradition. Each piece tells a story of luxury, woven with symbols and patterns reminiscent of ancient Egypt, designed for those who appreciate the finer things in life.</p>
-        </div>
-    </section>
-    <section id="craft" class="craft">
-        <h2>Craftsmanship</h2>
-        <p>At LOTUS, every garment is crafted with meticulous attention to detail. We use premium materials – from fine silks and wools to genuine leathers – and collaborate with skilled artisans. Our designs incorporate subtle Egyptian motifs in embroidery and accessories, creating a seamless union of modern luxury and historical elegance. The result is a collection of apparel that exudes sophistication and comfort.</p>
-    </section>
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form action="#" method="post">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your email">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    <footer>
-        &copy; 2025 LOTUS. All Rights Reserved.
-    </footer>
-</body>
-</html>
+            background-color: #f7f3e9;
+            border-left: 8px solid var(--primary-color
