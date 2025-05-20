@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOTUS | Old Money Polo</title>
+    <title>LOTUS | Old Money Aesthetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
@@ -49,7 +50,6 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             letter-spacing: 1px;
-            color: var(--charcoal);
         }
 
         .nav-links a {
@@ -82,6 +82,7 @@
                         url('https://images.unsplash.com/photo-1601924638867-80482e1b982d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            min-height: 80vh;
         }
 
         .hero h1 {
@@ -95,7 +96,7 @@
         /* Products Grid */
         .collection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             padding: 5%;
             max-width: 1400px;
@@ -134,9 +135,9 @@
         .product-price {
             color: var(--taupe);
             font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
-        /* Product Badges */
         .product-badge {
             position: absolute;
             top: 20px;
@@ -148,24 +149,27 @@
             letter-spacing: 1px;
         }
 
-        /* Buttons */
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gold);
+        .quick-add {
+            background: var(--charcoal);
             color: var(--ivory);
             border: none;
+            padding: 0.8rem 1.5rem;
             cursor: pointer;
             transition: background 0.3s;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
         }
 
-        .cta-button:hover {
-            background: #B08F68;
+        .quick-add:hover {
+            background: var(--taupe);
         }
 
-        /* Responsive */
+        /* Footer */
+        .footer {
+            padding: 4rem 5%;
+            background: var(--charcoal);
+            color: var(--ivory);
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links a { margin: 0 1rem; }
@@ -178,44 +182,60 @@
         <nav class="nav">
             <div class="logo">LOTUS</div>
             <div class="nav-links">
-                <a href="#collection">المجموعات</a>
-                <a href="#story">القصة</a>
-                <a href="#craftsmanship">الحرفية</a>
-                <a href="#contact">تواصل</a>
+                <a href="#collection">Collection</a>
+                <a href="#about">Heritage</a>
+                <a href="#craftsmanship">Craftsmanship</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
             </div>
         </nav>
     </header>
 
     <section class="hero" id="hero">
-        <h1 data-aos="zoom-in">فن البولو الكلاسيكي</h1>
-        <button class="cta-button" data-aos="zoom-in" data-aos-delay="300">اكتشف المجموعة</button>
+        <h1 data-aos="zoom-in">Timeless Elegance, Modern Luxury</h1>
+        <button class="quick-add" data-aos="zoom-in" data-aos-delay="300">Explore Collection</button>
     </section>
 
     <section class="collection-grid" id="collection">
         <!-- Product 1 -->
         <div class="product-card" data-aos="fade-up">
-            <span class="product-badge">حصري</span>
-            <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc549c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
-                 class="product-image" 
-                 alt="LOTUS Classic Polo">
+            <span class="product-badge">Best Seller</span>
+            <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc549c9" class="product-image" alt="Classic Polo">
             <div class="product-details">
-                <h3 class="product-title">تيشرت البولو الكلاسيكي</h3>
-                <p class="product-price">1,850 ج.م</p>
+                <h3 class="product-title">Signature Cotton Polo</h3>
+                <p class="product-price">$285.00</p>
+                <button class="quick-add">Quick Add</button>
+                <a href="#" class="view-details">View Details</a>
             </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-            <span class="product-badge">الأكثر مبيعًا</span>
-            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=1972&q=80" 
-                 class="product-image" 
-                 alt="LOTUS Navy Polo">
+        <!-- Product 2-10 (Repeat similar structure) -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="product-badge">Exclusive</span>
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633" class="product-image" alt="Navy Blazer">
             <div class="product-details">
-                <h3 class="product-title">تيشرت البولو الأزرق</h3>
-                <p class="product-price">2,150 ج.م</p>
+                <h3 class="product-title">Wool-Cashmere Blazer</h3>
+                <p class="product-price">$895.00</p>
+                <button class="quick-add">Quick Add</button>
+                <a href="#" class="view-details">View Details</a>
             </div>
         </div>
+
+        <!-- Add 8 more product cards following the same pattern -->
+
     </section>
+
+    <footer class="footer">
+        <p>© 2024 LOTUS. All rights reserved.</p>
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -223,6 +243,15 @@
             duration: 1000,
             once: true,
             easing: 'ease-in-out'
+        });
+
+        // Cart functionality
+        let cartCount = 0;
+        document.querySelectorAll('.quick-add').forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                document.querySelector('.cart-count').textContent = cartCount;
+            });
         });
     </script>
 </body>
