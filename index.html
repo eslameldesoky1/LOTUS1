@@ -1,301 +1,177 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOTUS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOTUS – Luxury Apparel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
-    /* Root colors */
     :root {
-      --color-beige: #f5f5dc;
-      --color-blue: #4169E1;
-      --color-gold: #ffd700;
+      --color-bg: #FDFCF4;      /* ivory/off-white */
+      --color-text: #2F2F2F;    /* dark slate for text */
+      --color-heading: #8B7152; /* taupe for headings */
+      --color-accent: #C0A96B;  /* soft gold for accents/buttons */
     }
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Cairo', sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-      color: #333;
-      direction: rtl;
-    }
-    /* Header */
-    header {
-      background-color: var(--color-beige);
-      padding: 20px;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: var(--color-text); background: var(--color-bg); }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--color-heading); }
+    h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 2rem; margin: 2rem 0 1rem; }
+    p { line-height: 1.6; margin: 0 0 1rem; }
+    a { color: inherit; text-decoration: none; }
+    /* Hero section */
+    .hero {
+      position: relative;
+      background: url('https://source.unsplash.com/1600x900/?fashion,model') center/cover no-repeat;
+      height: 80vh;
+      min-height: 400px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2em;
-      font-weight: 700;
-      color: var(--color-blue);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
       justify-content: center;
-    }
-    nav li a {
-      text-decoration: none;
-      font-weight: bold;
-      color: var(--color-blue);
-      transition: color 0.3s;
-    }
-    nav li a:hover {
-      color: var(--color-gold);
-    }
-    /* Section Titles */
-    .section-title {
       text-align: center;
-      margin: 60px 0 20px;
+      color: white;
     }
-    .section-title .arabic {
-      display: block;
-      font-size: 2em;
-      color: var(--color-blue);
-      font-weight: 700;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
     }
-    .section-title .english {
-      display: block;
-      font-size: 1em;
-      color: var(--color-gold);
-      margin-top: 5px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
+    .hero-content { position: relative; padding: 0 1rem; }
+    .hero h1 { font-size: 3.5rem; letter-spacing: 2px; }
+    .hero button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--color-accent);
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-    /* Hero Section */
-    #hero {
-      background-color: var(--color-beige);
-      padding: 100px 20px;
-      text-align: center;
+    .hero button:hover {
+      background: #a88a4e;
     }
-    #hero .arabic {
-      font-size: 3em;
-      color: var(--color-blue);
-      font-weight: 700;
-    }
-    #hero .english {
-      font-size: 1.5em;
-      color: var(--color-gold);
-      margin-top: 10px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-    }
-    /* About Section */
-    #about {
-      padding: 40px 20px;
-    }
-    /* Products Section */
-    #products {
-      padding: 40px 20px;
-      background-color: #faf9f6;
-    }
-    .products-grid {
+    /* Main content */
+    .container { max-width: 1000px; margin: 3rem auto; padding: 0 1rem; }
+    /* Products grid */
+    .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 1.5rem;
     }
-    .product, .outfit {
+    .product-item {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
     }
-    .product img, .outfit img {
+    .product-item img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
+      display: block;
     }
-    .product h3, .outfit h4 {
-      margin: 10px 0;
-      font-size: 1.2em;
-      color: var(--color-blue);
+    .product-item .caption {
+      padding: 0.75rem;
+      font-size: 1rem;
     }
-    .product h3 .english, .outfit h4 .english {
-      font-size: 0.9em;
-      font-family: 'Playfair Display', serif;
-      color: var(--color-gold);
-      margin-top: 5px;
+    /* Craftsmanship section */
+    .craftsmanship {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin: 2rem 0;
     }
-    .product p, .outfit p {
-      margin: 5px 0;
-      font-size: 0.95em;
-      color: #444;
+    .craftsmanship ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin-top: 1rem;
     }
-    /* Outfits Section (grid) */
-    .outfits-grid {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    /* Craftsmanship Section */
-    #craftsmanship {
-      padding: 40px 20px;
-    }
-    /* Contact Section */
-    #contact {
-      padding: 40px 20px;
-      background-color: #faf9f6;
-    }
-    #contact p {
+    /* Contact */
+    .contact {
       text-align: center;
-      margin: 5px 0;
-      color: #444;
+      padding: 2rem 0;
+      font-size: 1rem;
     }
-    /* Language classes */
-    .arabic {
-      direction: rtl;
-    }
-    .english {
-      direction: ltr;
-    }
-    /* Responsive Images and Text */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    .contact a { color: var(--color-accent); font-weight: 600; }
+    /* Responsive adjustments */
     @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-      }
-      .logo {
-        margin-bottom: 10px;
-      }
-      nav ul {
-        justify-content: center;
-      }
+      .hero h1 { font-size: 2.5rem; }
+      .hero { height: 60vh; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">LOTUS</div>
-    <nav>
-      <ul>
-        <li><a href="#hero"><span class="arabic">الرئيسية</span><span class="english">Home</span></a></li>
-        <li><a href="#about"><span class="arabic">نبذة عنا</span><span class="english">About</span></a></li>
-        <li><a href="#products"><span class="arabic">المنتجات</span><span class="english">Products</span></a></li>
-        <li><a href="#craftsmanship"><span class="arabic">الحرفية</span><span class="english">Craftsmanship</span></a></li>
-        <li><a href="#contact"><span class="arabic">تواصل معنا</span><span class="english">Contact</span></a></li>
-      </ul>
-    </nav>
-  </header>
-
   <!-- Hero Section -->
-  <section id="hero">
-    <h1 class="arabic">مرحبًا بكم في لوتس</h1>
-    <h2 class="english">Welcome to Lotus</h2>
-    <p class="arabic" style="margin-top:20px; font-size:1.2em;">أزياء رجالية تجمع بين الكلاسيكية والفخامة</p>
-    <p class="english" style="color:#555; margin-top:10px;">Luxury menswear combining classic style and elegance</p>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Modern Elegance</h1>
+      <p style="opacity: 0.9; font-size: 1.25rem; margin-top:1rem;">Luxury Apparel by LOTUS</p>
+      <button onclick="window.location='#products'">Explore Collection</button>
+    </div>
   </section>
 
   <!-- About Section -->
-  <section id="about">
-    <h2 class="section-title"><span class="arabic">نبذة عن الشركة</span><span class="english">About Us</span></h2>
-    <p class="arabic">تأسست لوتس بهدف تقديم أزياء رجالية تجمع بين الفخامة والبساطة. نحن نستلهم تصاميمنا من أسلوب Old Money الكلاسيكي، مع التركيز على الجودة العالية والخامات الطبيعية. كعلامة تجارية فاخرة، نلتزم بالحرفية والإتقان في كل تفاصيل منتجاتنا.</p>
-    <p class="english">LOTUS was founded to offer men’s fashion that combines luxury and simplicity. We draw inspiration from classic Old Money style, focusing on high quality and natural fabrics. As a luxury brand, we are committed to craftsmanship and excellence in every detail of our products.</p>
-  </section>
+  <div class="container" id="about">
+    <h2>About LOTUS</h2>
+    <p>LOTUS is a modern luxury apparel brand dedicated to timeless style and refined elegance. Drawing inspiration from classic couture and contemporary fashion, LOTUS creates garments with clean lines and sophisticated silhouettes. Our collections emphasize quality fabrics and versatile designs that transition seamlessly from day to evening.</p>
+    <p>Founded on a passion for craftsmanship, LOTUS pays meticulous attention to detail at every step. We source premium materials and partner with experienced artisans to ensure every piece embodies our commitment to excellence and luxury.</p>
+  </div>
 
   <!-- Products Section -->
-  <section id="products">
-    <h2 class="section-title"><span class="arabic">منتجاتنا</span><span class="english">Our Products</span></h2>
-    <div class="products-grid">
-      <!-- Product 1 -->
-      <div class="product">
-        <img src="https://source.unsplash.com/600x400/?polo-shirt" alt="Polo Shirt">
-        <h3><span class="arabic">قميص بولو</span><br><span class="english">Polo Shirt</span></h3>
-        <p class="arabic">قميص بولو قطني عالي الجودة، تصميمه الكلاسيكي يناسب أجواء الصيف والأناقة اليومية.</p>
-        <p class="english">High-quality cotton polo shirt with a classic design suitable for summer days and casual elegance.</p>
+  <div class="container" id="products">
+    <h2>Our Collection</h2>
+    <div class="products">
+      <div class="product-item">
+        <img src="https://source.unsplash.com/400x400/?evening-gown" alt="Silk Evening Gown">
+        <div class="caption">Silk Evening Gown</div>
       </div>
-      <!-- Product 2 -->
-      <div class="product">
-        <img src="https://source.unsplash.com/600x400/?linen-suit" alt="Linen Suit">
-        <h3><span class="arabic">بدلة كتان</span><br><span class="english">Linen Suit</span></h3>
-        <p class="arabic">بدلة كتان خفيفة الوزن، مثالية للأيام الحارة، مصنوعة بدقة عالية لتمنحك مظهرًا أنيقًا وفخمًا.</p>
-        <p class="english">Lightweight linen suit, perfect for hot days, meticulously crafted to give you an elegant and luxurious look.</p>
+      <div class="product-item">
+        <img src="https://source.unsplash.com/400x400/?mens-blazer" alt="Tailored Men's Blazer">
+        <div class="caption">Tailored Men's Blazer</div>
       </div>
-      <!-- Product 3 -->
-      <div class="product">
-        <img src="https://source.unsplash.com/600x400/?trousers,men" alt="Men's Trousers">
-        <h3><span class="arabic">بناطيل رجالية</span><br><span class="english">Men's Trousers</span></h3>
-        <p class="arabic">بناطيل رجالية مريحة وعصرية، مصنوعة من أجود الأقمشة وتأتي بتصاميم متعددة تناسب مختلف المناسبات.</p>
-        <p class="english">Comfortable and stylish men’s trousers, made from premium fabrics and available in various designs suitable for different occasions.</p>
+      <div class="product-item">
+        <img src="https://source.unsplash.com/400x400/?leather-jacket" alt="Leather Moto Jacket">
+        <div class="caption">Leather Moto Jacket</div>
       </div>
-    </div>
-
-    <!-- Outfits -->
-    <div class="outfits-grid">
-      <div class="outfit">
-        <img src="https://source.unsplash.com/600x400/?polo,outfit" alt="Beige Polo and Linen Outfit">
-        <h4><span class="arabic">الإطلالة 1</span><br><span class="english">Outfit 1</span></h4>
-        <p class="arabic">قميص بولو كريمي اللون مع بنطال كتان بيج، مظهر أنيق وكلاسيكي.</p>
-        <p class="english">Cream polo shirt paired with beige linen trousers, creating an elegant and classic look.</p>
+      <div class="product-item">
+        <img src="https://source.unsplash.com/400x400/?summer-dress" alt="Floral Summer Dress">
+        <div class="caption">Floral Summer Dress</div>
       </div>
-      <div class="outfit">
-        <img src="https://source.unsplash.com/600x400/?linen,outfit" alt="Royal Blue Linen Suit">
-        <h4><span class="arabic">الإطلالة 2</span><br><span class="english">Outfit 2</span></h4>
-        <p class="arabic">بدلة كتان زرقاء ملكية مع قميص أبيض، إطلالة رسمية مفعمة بالأناقة.</p>
-        <p class="english">Royal blue linen suit with a white shirt, an elegant formal outfit.</p>
+      <div class="product-item">
+        <img src="https://source.unsplash.com/400x400/?casual-shirt" alt="Linen Casual Shirt">
+        <div class="caption">Linen Casual Shirt</div>
       </div>
-      <div class="outfit">
-        <img src="https://source.unsplash.com/600x400/?casual,outfit,man" alt="Gray Polo with Beige Chinos">
-        <h4><span class="arabic">الإطلالة 3</span><br><span class="english">Outfit 3</span></h4>
-        <p class="arabic">قميص بولو رمادي فاتح مع بنطال قماشي بيج، مزيج متجدد من الراحة والأناقة.</p>
-        <p class="english">Light gray polo shirt with beige chinos, a refreshing combination of comfort and style.</p>
-      </div>
-      <div class="outfit">
-        <img src="https://source.unsplash.com/600x400/?linen,jacket" alt="Light Linen Jacket Outfit">
-        <h4><span class="arabic">الإطلالة 4</span><br><span class="english">Outfit 4</span></h4>
-        <p class="arabic">جاكيت كتان فاتح مع قميص بني وسروال داكن لإطلالة أنيقة متكاملة.</p>
-        <p class="english">Light linen jacket with a brown shirt and dark trousers for a polished ensemble.</p>
-      </div>
-      <div class="outfit">
-        <img src="https://source.unsplash.com/600x400/?polo-stripe" alt="Pastel Polo and White Trousers">
-        <h4><span class="arabic">الإطلالة 5</span><br><span class="english">Outfit 5</span></h4>
-        <p class="arabic">قميص بولو مخطط بألوان الباستيل مع بنطال كتان أبيض، للمظهر الصيفي الهادئ.</p>
-        <p class="english">Pastel striped polo shirt with white linen trousers, for a calm summer look.</p>
-      </div>
-      <div class="outfit">
-        <img src="https://source.unsplash.com/600x400/?suit,classic" alt="Dark Gray Linen Suit">
-        <h4><span class="arabic">الإطلالة 6</span><br><span class="english">Outfit 6</span></h4>
-        <p class="arabic">بدلة كتان رمادية داكنة مع إكسسوارات كلاسيكية، لإطلالة Vintage أنيقة.</p>
-        <p class="english">Dark gray linen suit with classic accessories, for an elegant vintage look.</p>
+      <div class="product-item">
+        <img src="https://source.unsplash.com/400x400/?luxury-accessories" alt="Luxury Accessories">
+        <div class="caption">Luxury Accessories</div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Craftsmanship Section -->
-  <section id="craftsmanship">
-    <h2 class="section-title"><span class="arabic">الحرفية</span><span class="english">Craftsmanship</span></h2>
-    <p class="arabic">في لوتس، نفخر بالحرفية العالية في صناعة كل قطعة من مجموعتنا. يجمع حرفيون مهرة بين التقنيات التقليدية والابتكار الحديث ليقدموا لك قطعاً دقيقة التفاصيل. كل غرزة وكل خامة في أزيائنا تعكس التزامنا بالجودة والفخامة.</p>
-    <p class="english">At Lotus, we take pride in the high craftsmanship of every piece in our collection. Skilled artisans combine traditional techniques with modern innovation to bring you pieces with meticulous details. Every stitch and fabric in our garments reflects our commitment to quality and luxury.</p>
-  </section>
+  <div class="container">
+    <h2>Craftsmanship</h2>
+    <div class="craftsmanship">
+      <p>Each LOTUS garment is crafted with precision and care. Our dedication to craftsmanship means:</p>
+      <ul>
+        <li>Premium, carefully sourced materials (silk, cashmere, fine leather).</li>
+        <li>Hand-finished details and expert tailoring for a perfect fit.</li>
+        <li>Sustainable and ethical production practices.</li>
+        <li>Timeless design with attention to every stitch.</li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title"><span class="arabic">تواصل معنا</span><span class="english">Contact Us</span></h2>
-    <p class="arabic">لأي استفسارات أو تعاون، يمكنكم التواصل معنا عبر البريد الإلكتروني أو الهاتف. نحن هنا لخدمتكم.</p>
-    <p class="english">For any inquiries or collaborations, you can contact us via email or phone. We are here to serve you.</p>
-    <p class="arabic"><strong>البريد الإلكتروني:</strong> info@lotus.com</p>
-    <p class="english"><strong>Email:</strong> info@lotus.com</p>
-    <p class="arabic"><strong>هاتف:</strong> +20 123 456 7890</p>
-    <p class="english"><strong>Phone:</strong> +20 123 456 7890</p>
-  </section>
+  <div class="container contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or need assistance? Contact us at <a href="mailto:info@lotusfashion.com">info@lotusfashion.com</a>.</p>
+    <p>Follow us on Instagram: @lotus_fashion</p>
+  </div>
 
 </body>
 </html>
